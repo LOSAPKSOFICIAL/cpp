@@ -1,0 +1,68 @@
+#include <iostream>/*Biblioteca que inicia a entrada e saida de informações*/
+
+#include <stdio.h>/*Biblioteca que inicia o switch (opcional, funciona sem)*/
+
+#include <string>/*Biblioteca que torna possivél usar uma variável do tipo string (Opcionnal, pois é como a stdio.h fuciona sem)*/
+
+using namespace std;/* Declaração da não necessidade de uso std::cout (Torna o código mais limpo e bem estruturado)*/
+
+int main (){ /*Int main inicia toda a operação, funciona como o onCreate de linguagens como Java e outras que são e não orientadas a objeto*/
+    
+    string e; /*Variável tipo string, são exelentes para uso em campos onde se coleta nº e letras ex: UID de um usuário*/ 
+    double n1, n2, n3, n4, n5, soma, result; /*Varíável do tipo double é uma boa, para coletar nº que podem conter pontos e virgulas*/
+    int avaliation;/* Variável tipo int, é idel para coletas de nº inteiros, e ideal para usar a  lógica switch e case*/
+    
+    cout << "Digite a primeira nota de um aluno: \n"; /*Cout é o campo de digitação do usuário*/
+    cin >> n1;/*Cin é onde o campo do usuário vai armazenar as informações, normalmente em suas variáveis*/ 
+    
+    cout << "Digite a segunda nota: \n";
+    cin >> n2;
+    
+    cout << "Digite a terceira nota: \n";
+    cin >> n3;
+    
+    cout << "Digite a quarta nota: \n";
+    cin >> n4;
+    
+    cout << "Digite a quinta nota (Conselho final): \n";
+    cin >> n5;
+    
+    soma = n1+n2+n3+n4+n5;
+    
+    cout << "Digite : 1 para não considerar nota conselho ou 2 para considerar nota do conselho: \n";
+    cin >> avaliation;
+    
+        switch (avaliation){/*Switch é uma ferramenta que controla o fluxo de dados*/
+        
+            case(1):/*Case determina a ação realizada*/
+            result = soma/4;
+            cout << "Nota final sem conselho: " << result << endl;
+            break;/*Break eencerra a ação do case, e se não tiver nenhhum if else, encerra o programa*/
+            
+            case(2):
+            result = soma/5;
+            cout << "Nota final com conselho: " << result << endl;
+            break;
+            
+            return 1;/*Return, como o próprio nome diz, retorna a uma posição, seja ela 0 ou 1*/
+        }
+    if(result >= 3 && result <= 5){/*If inicia uma checagem de que se a posição for verdadeira (true) execulta uma determinada ação*/
+       cout << "Aluno aprovado por exame: " << result << endl;
+       e = "parcial";
+    }else if(result >=6 && result <= 10 || result >= 10){/*else faz a ação contraria do if, trata no caso de o resultado for falso (false), contendo else if anula a ação contrária e cria uma nova checagem se não for a ação primária ele tenta execultar o código seguinte*/
+        cout << "Aluno aprovado: " << result << endl;
+        e = "total";
+    }else if(result < 3){
+        cout << "Aluno reprovado: " << result << endl;
+        e = "insuficiente";
+    }
+    
+    if(e == "parcial"){
+        cout << "Aproveitamento" << " " << e;
+    }else if(e == "total"){
+        cout << "Aproveitamento" << " " << e;
+    }else if(e == "insuficiente"){
+        cout << "Aproveitamento" << " " << e;
+    }
+    return 0;
+}
